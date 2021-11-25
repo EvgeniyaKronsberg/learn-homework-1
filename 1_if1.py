@@ -22,17 +22,21 @@ def main(age):
     # age = input('Введите ваш возраст ')
     # age = int(age)
     if age <7:
-      return print(f'Тебе {age}, иди в сад')
+        return print(f'Тебе {age}, иди в сад')
     elif age >= 7 and age < 17:
-      return print(f'Тебе {age}, дуй в школу')
+        return print(f'Тебе {age}, дуй в школу')
     elif age >=17 and age <21:
-      return print(f'Тебе {age}, пшел в универ')
+        return print(f'Тебе {age}, пшел в универ')
     elif age >=21 and age <65:
-      return print(f'Тебе {age}, до пенсии еще далеко, вали на работу')
+        return print(f'Тебе {age}, до пенсии еще далеко, вали на работу')
     else:
-      return print(f'Тебе {age}, здравствуй пенсия')
+       return print(f'Тебе {age}, здравствуй пенсия')
 
 
 if __name__ == "__main__":
     age = input('Введите ваш возраст ')
-    main(int(age))
+    try:
+        main(int(age))
+    except ValueError: 
+        print("Введенное значение должно быть числом. Запустите программу еще раз.")
+      

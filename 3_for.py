@@ -27,87 +27,30 @@ def main():
     {'product': 'Samsung Galaxy 21', 'items_sold': [343, 390, 238, 437, 214, 494, 441, 518, 212, 288, 272, 247]},
     ]
 
-    sum_of_each = 0
-    total_sum = 0
-    count = 0
-    count_product = 0
-    res_dict = {}
+    sum_of_each = 0 # переменная для подсчета общего количества проданных телефонов для каждой модели
+    total_sum = 0 # переменная для подсчета общего количества проданных телефонов
+    count = 0   # счетчик для подсчета количества всех продаж
+    count_product = 0 # счетчик для подсчета количества типов телефонов
 
-    # print(phones)
-    print(phones[0])
-
-    # for phone in phones:
-    #     for item in phone['items_sold']:
-    #         total_sum += item
-    #         count += 1
-    #         # print(f'Суммарное количество продаж всех товаров {total_sum}') 
-    #         # print(f'Cреднее количество продаж всех товаров {total_sum/count}') 
-    #         # print(count)
-
-
-    # for phone in phones[0]:
-    #     # sum_of_each += phone['items_sold']
-    #     #product_count = phones['product']
-    #     #print(phones['product'])
-    #     print(phone)
-    #     # for item in phone['items_sold']:
-    #     #     total_sum += item
-    #     #     count += 1
-    #     #     # print(f'Суммарное количество продаж всех товаров {total_sum}') 
-    #     #     # print(f'Cреднее количество продаж всех товаров {total_sum/count}') 
-    #     #     # print(count)
-    
     for phone in phones:
-        # sum_of_each += phone['items_sold']
-        product_name = phone['product']
-        #print(phones['product'])
-        # print(phone)
-        product_item_sold = phones[count_product]['items_sold']
-        
-        # print(f'product_name {product_name}')
-        # print(f'Каждый элемент списка (словарь): {phones[count_product]}')
-        # print(f'Данные для количества: {product_item_sold}')
-        # print(f'Тип данных для количества: {type(product_item_sold)}')
-
+        product_name = phone['product'] # определяем модель телефона
+        product_item_sold = phones[count_product]['items_sold'] # выделяем список с продажами для этой модели
         sum_of_each = 0
-        count_each = 0
 
+        # считаем количество общие продажи для каждой модели
         for item in product_item_sold:
             sum_of_each += item
             total_sum += item
             count += 1
-        #     print(count_product)
-        
-        # res_dict['product'] = product_name
-        # res_dict['total_sold'] = sum_of_each
-        # res_dict['avg_sold'] = sum_of_each/len(product_item_sold)
-        # print('счетчик: ', count_product)
+
         print(f'Суммарное количество продаж для {product_name}: {sum_of_each}')
         print(f'Cреднее количество продаж для {product_name}: {sum_of_each/len(product_item_sold)}')
-
-        
+ 
         count_product += 1
     
     print(f'Суммарное количество продаж всех товаров {total_sum}') 
     print(f'Cреднее количество продаж всех товаров {total_sum/count}') 
-        
-        # for item in phone['items_sold']:
-        #     total_sum += item
-        #     count += 1
-        #     # print(f'Суммарное количество продаж всех товаров {total_sum}') 
-        #     # print(f'Cреднее количество продаж всех товаров {total_sum/count}') 
-        #     # print(count)
-
-    # print(f'Суммарное количество продаж всех товаров {total_sum}') 
-    # print(f'Cреднее количество продаж всех товаров {total_sum/count}') 
-    # for item in res_dict:
-        # print(f'Суммарное количество продаж для {(res_dict['product'])} {(res_dict['total_sold'])}') 
-        # print('Суммарное количество продаж для ',res_dict['product'],': ',res_dict['total_sold']) 
-        # print(f'Cреднее количество продаж для {(res_dict['product'])} {(res_dict['avg_sold'])}') 
-
-    # print(count)         
-             
-           
+                  
            
 if __name__ == "__main__":
     main()

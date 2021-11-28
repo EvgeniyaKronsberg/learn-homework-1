@@ -14,14 +14,25 @@
     Программа: Программирую
     
 """
+#Словарь с вопросами и ответами
+questions_and_answers = {
+'Как дела?': 'Хорошо!',
+'Что делаешь?': 'Программирую',
+'Чаю хочешь?': 'Наливай!',
+'Есть ли жизнь на Марсе?': 'Маска спроси!',
+'Это баг?': 'Это фича!',
+'В чем сила, брат?': 'В нютонах'}
 
-questions_and_answers = {}
 
 def ask_user(answers_dict):
-    """
-    Замените pass на ваш код
-    """
-    pass
-    
+
+    while True:
+        question = input('Введите вопрос: ')
+        if question in questions_and_answers:
+            print(questions_and_answers[question])
+        else:
+            print('Слишком сложно, спроси что-то другое')
+
+
 if __name__ == "__main__":
     ask_user(questions_and_answers)

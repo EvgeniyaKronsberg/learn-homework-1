@@ -1,0 +1,16 @@
+planet_dict = {
+    'Меркурий': 'Mercury',
+    'Венера': 'Venus',
+    'Марс': 'Mars',
+    'Юпитер': 'Jupiter',
+    'Сатурн': 'Saturn',
+    'Уран': 'Uranium',
+    'Нептун': 'Neptune',
+    'Mercury': 'Mercury',
+    'Venus': 'Venus',
+    'Mars': 'Mars',
+    'Jupiter': 'Jupiter',
+    'Saturn': 'Saturn',
+    'Uranium': 'Uranium',
+    'Neptune': 'Neptune',    
+    }

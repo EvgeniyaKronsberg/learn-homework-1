@@ -19,6 +19,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import settings
 import ephem
 import time
+import planet_dict
 
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
@@ -49,23 +50,33 @@ def talk_to_me(update, context):
 # функция, которая по названию планеты определяет ее положение в созвездии на сегодняшнюю дату
 def planet_info(update, context):
     planet_command = update.message.text
+    
     planet_name = planet_command.split()[1].capitalize() # извлекаем название планеты
     print(f'Выбрана планета: {planet_name}')
+
+    #вставить проверку по словарю планет
+    if planet_name in planet_dict:
+        planet_name_eng = planet_dict['planet_name']
+        print(planet_name_eng)
     
-    today = time.strftime("%Y/%m/%d") # определяем сегодняшнюю дату
-    print(today) 
-    print(planet_name)
-    print(type(planet_name))
+        today = time.strftime("%Y/%m/%d") # определяем сегодняшнюю дату
+        print(today) 
+        print(planet_name)
+        print(type(planet_name))
 
-    planet_obj = getattr(ephem, planet_name)(today) # получаем объект ephem с данными для нашей планеты
-    print(planet_obj)
+        planet_obj = getattr(ephem, planet_name)(today) # получаем объект ephem с данными для нашей планеты
+        print(planet_obj)
 
-    const = ephem.constellation(planet_obj) # извлекаем информацию о созвездии
-    print(const)
-    print(type(const))
+        const = ephem.constellation(planet_obj) # извлекаем информацию о созвездии
+        print(const)
 
-    update.message.reply_text(f'Планета {planet_name} сегодня находится в созвездии {const[1]}') # выводим в телеграм информацию о созвездии
+        update.message.reply_text(f'Планета {planet_name} сегодня находится в созвездии {const[1]}') # выводим в телеграм информацию о созвездии
 
+    else:
+        print('Ошибка')
+        update.message.reply_text(f'Планета {planet_name} не найдена') 
+        
+        
 
 def main():
     mybot = Updater(settings.API_KEY, request_kwargs=PROXY, use_context=True)
